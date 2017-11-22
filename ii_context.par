@@ -1,0 +1,7 @@
+# Parameter file for   ii_shadow_build
+details,s,h,		"YES",,,"Do Debugging if equal to YES, otherwise no."
+inSWGGRP,s,h,		"",,,"DOL of input Group."
+idxLowThre,s,h,		"",,,"DOL of the index of Revolution Context."
+idxNoisy,s,h,		"",,,"DOL of the index of HK3 noisy maps."
+revolution,i,h,         "",,,""
+outputLevel,s,h,	"BIN_I",,,"Output level of the DS"
