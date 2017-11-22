@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < ISGRI_SIZE; i++)
         if ((ONpixelsREVmap[i] = (dal_int*) calloc(ISGRI_SIZE, sizeof (dal_int))) == NULL)
             Abort(NewGRP, "Error in allocating memory for  pixels on / off map.", status);
-    if ((status = GetREVcontext(idxREVcontext, revolution, RevolEnd,
+    if ((status = GetREVcontext(idxREVcontext, revolution, RevolOBT[1],
             LowThreshMap, ONpixelsREVmap, detailedOutput)) != ISDC_OK) {
         RILstatus = RILlogMessage(NULL, Error_1, "Retrieving Revolution Context failed, status %d.", status);
         CommonExit(status);
@@ -123,6 +123,7 @@ int main(int argc, char *argv[]) {
     fclose(f);
 
 
+    return 1;
 
     // Retrieve Pixel HK3 Status
     dal_int **ONpixelsHK3map = NULL;
@@ -131,7 +132,7 @@ int main(int argc, char *argv[]) {
     for (int y = 0; y < ISGRI_SIZE; y++)
         if ((ONpixelsHK3map[y] = (dal_int*) calloc(ISGRI_SIZE, sizeof (dal_int))) == NULL)
             Abort(NewGRP, "Error in allocating memory for ONpixelsHK3 map[][]", ERR_ISGR_OSM_MEMORY_ALLOC);
-    if ((status = GetHK3status(idxHK3maps, RevolStart, RevolEnd, ONpixelsHK3map, detailedOutput)) != ISDC_OK) {
+    if ((status = GetHK3status(idxHK3maps, RevolOBT[0], RevolOBT[1], ONpixelsHK3map, detailedOutput)) != ISDC_OK) {
         RILstatus = RILlogMessage(NULL, Error_1, "Error while retrieving HK3 pixels live time, status= %d.", status);
         CommonExit(status);
     }
