@@ -1,0 +1,37 @@
+# this file is included from Makefile(.in)
+
+TAR_FILE_NAME		= ii_context
+
+EXTERNAL_PACKAGES	= 
+
+SUBDIRS			= Tree IsgriGen HK3stuff
+
+# ========================= C EXECUTABLE TARGET  =========================
+# PLEASE CUT&PASTE INTO makeisdc1.in FROM HERE UP TO END OF TARGET DEFN
+#
+
+C_EXEC			= ii_context
+C_EXEC_1_SOURCES	= ii_context_main.cpp 
+C_OBJECTS		= ii_context_main.o ii_context_read.o \
+			  IsgriGen/IsgriGen.o Tree/tree_mgr.o HK3stuff/HK3stuff.o
+
+C_LIBRARIES		= -ldal3ibis -ldal3hk -ldal3gen -ldal3aux -lcommon -lpil -lril -ldal -lcfitsio \
+			  ${LAST_LIBS}
+
+${C_EXEC}:		${C_OBJECTS}
+			${CXX}  ${ALL_CXX_CFLAGS} -o ${C_EXEC} ${C_OBJECTS} ${ALL_CXX_LDFLAGS} ${C_LIBRARIES}
+
+CLEAN_TARGETS		+= ${C_EXEC}
+ALL_TARGETS		+= ${C_EXEC}
+TO_INSTALL_BIN		+= ${C_EXEC}
+TO_INSTALL_HELP		+= ${C_EXEC}.txt
+TO_INSTALL_LIB		+= 
+TO_INSTALL_PAR		+= ${C_EXEC}.par
+TO_INSTALL_TEMPLATES	+= 
+TO_INSTALL_EXTRA_GLOBAL	+=
+TO_INSTALL_EXTRA_LOCAL	+=
+# ======================== END OF C EXECUTABLE TARGET  =================
+
+testcommands:: 
+	(cd unit_test ; ./README.test)
+
