@@ -1,0 +1,20 @@
+##########################################################################
+# package:   makefiles                                                   #
+# version:   2.0.1, 21-Jan-2000                                          #
+# file:      makeisdc1(.in)                                              #
+# author:    Jerzy.Borkowski@obs.unige.ch                                #
+# copyright: ISDC, chemin d'Ecogia 16, 1290 Versoix, Switzerland         #
+##########################################################################
+
+CXX_SOURCES	= IsgriGen.cpp
+CXX_OBJECTS	= IsgriGen.o
+
+${CXX_OBJECTS}:	${CXX_SOURCES}
+		${CXX}  ${ALL_CXX_CFLAGS} ${CXX_SOURCES} 
+
+CLEAN_TARGETS		+= ${CXX_OBJECTS}
+ALL_TARGETS		+= ${CXX_OBJECTS}
+
+# ======================== END OF C EXECUTABLE TARGET  =================
+
+
