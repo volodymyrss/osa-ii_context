@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
     fclose(f);
 
 
-    return 1;
+    return 0;
 
     // Retrieve Pixel HK3 Status
     dal_int **ONpixelsHK3map = NULL;
