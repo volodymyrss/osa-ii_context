@@ -58,10 +58,13 @@ int main(int argc, char *argv[]) {
 
 
     double RevolStart, RevolEnd;
-    OBTime *RevolOBT;
-    double RevolIJD[2] = {RevolStart, RevolEnd};
+    OBTime RevolOBT[2];
     int tmp_revol;
     status = DAL3AUXgetRevolutionBounds(revolution, DAL3AUX_INPUT_REVOL_NUM, &tmp_revol, &RevolStart, &RevolEnd, status);
+        
+    RILstatus = RILlogMessage(NULL, Log_1, "revolution %4i bounds IJD: %.20lg .. %.20lg; %i", revolution, RevolStart, RevolEnd, tmp_revol);
+
+    double RevolIJD[2] = {RevolStart, RevolEnd};
 
     status = DAL3AUXconvertIJD2OBT(NewGRP,
                                     TCOR_ANY,

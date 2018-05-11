@@ -320,7 +320,7 @@ int GetREVcontext(dal_element   *REVcontext,       // DOL to the REV context
   // Use Dal3Ibis library: LT(keV) are set to 0 if LT(step) is dummy or 63 (noisy pixel)
   if((status= DAL3IBISGetlowthresholdKev(REVcontext,OBTend,BufferF,status))!=ISDC_OK)
     {
-      RILstatus= RILlogMessage(NULL,Error_1,"Getting Revolution %i until %li LowThresholds failed, status %d.",Revol,OBTend,status);
+      RILstatus= RILlogMessage(NULL,Error_1,"Getting Revolution %i in OBT range until %li; LowThresholds failed, status %d.",Revol,OBTend,status);
       // SCREW 1746: if reading failed, set to average value (depends on Revol)
       double MeanLT= 18.2;
       if(Revol>55) MeanLT= 17.2;

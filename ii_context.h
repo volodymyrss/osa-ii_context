@@ -34,13 +34,13 @@ int ChkFilesExist(dal_element   *NewGRP,         // DOL to the SWG
                   dal_element   **REVcontext,    // Output: DOL to the REV Context to be used
                   unsigned char detailedOutput); //output
 
-
 int GetREVcontext(dal_element   *REVcontext,       // DOL to the REV context
-		  int           Revol,             // Revolution number of the SCW
-                  OBTime        OBTend,            // End Time of the SCW		                  
-		  dal_double    **LowThreshMap,    // Output: Map of Low Thresholds (keV)
-		  dal_int       **ONpixelsREVmap,  // Output: Map of Pixels Status for this REV
-		  unsigned char detailedOutput);
+        int           Revol,             // Revolution number of the SCW
+        OBTime        OBTend,            // End Time of the SCW
+        dal_double    **LowThreshMap,    // Output: Map of Low Thresholds (keV)
+        dal_int       **ONpixelsREVmap,  // Output: Map of Pixels Status for this REV
+        unsigned char detailedOutput);
+
 
 int GetHK3status(dal_element   *idxNoisy,        // DOL to the HK3 noisy maps
 		 OBTime        SCWstart,         // SCW Starting time
